@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Item Adder</title>
+</head>
+<body>
+    <h2>Add Items to Array</h2>
+
+    <input type="text" id="itemInput" placeholder="Enter item">
+    <button onclick="addItem()">Add Item</button>
+
+    <h3>Array Items:</h3>
+    <ul id="itemList"></ul>
+
+    <script>
+        let items = [];
+
+        function addItem() {
+            const input = document.getElementById("itemInput").value.trim();
+
+            if (input !== "") {
+                items.push(input);
+                document.getElementById("itemInput").value = "";
+                displayItems();
+            }
+        }
+
+        function displayItems() {
+            const list = document.getElementById("itemList");
+            list.innerHTML = "";
+
+            items.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
