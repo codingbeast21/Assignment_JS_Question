@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visit Tracker</title>
+</head>
+<body>
+
+<h2>Visit Tracker</h2>
+<p id="visitInfo"></p>
+
+<script>
+function setCookie(name, value, days) {
+  const expires = new Date(Date.now() + days*24*60*60*1000).toUTCString();
+  document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + expires + ";path=/";
+}
+
+function getCookie(name) {
+  const cookieArr = document.cookie.split("; ");
+  for(let cookie of cookieArr) {
+    let [key, val] = cookie.split("=");
+    if(key === name) return decodeURIComponent(val);
+  }
+  return null;
+}
+
+let visitCount = getCookie("visitCount");
+let lastVisit = getCookie("lastVisit");
+const now = new Date();
+
+if(visitCount === null) {
+  visitCount = 1;
+  document.getElementById("visitInfo").textContent = "You have never visited before.";
+} else {
+  visitCount = Number(visitCount) + 1;
+  document.getElementById("visitInfo").innerHTML = `
+    You have visited ${visitCount} times!<br>
+    Your last visit was on: ${lastVisit}
+  `;
+}
+
+setCookie("visitCount", visitCount, 365);
+setCookie("lastVisit", now.toString(), 365);
+</script>
+
+</body>
+</html>

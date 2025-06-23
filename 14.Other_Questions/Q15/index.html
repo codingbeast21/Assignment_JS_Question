@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mad Libs Game</title>
+</head>
+<body>
+
+<script>
+  let name = prompt("Enter your name:");
+
+  let word1 = prompt("Enter a noun:");
+  let word2 = prompt("Enter a verb:");
+  let word3 = prompt("Enter an adjective:");
+  let word4 = prompt("Enter an adverb:");
+  let word5 = prompt("Enter a place:");
+
+  let color = prompt("Enter a color (name or hex):");
+
+  function highlight(word) {
+    return `<div style="color:${color}; display:inline;">${word}</div>`;
+  }
+
+  document.write(`<h2>Mad Libs Story</h2>`);
+  document.write(`<p>Once upon a time, there was a person named ${highlight(name)}.</p>`);
+  document.write(`<p>One day, ${highlight(name)} found a ${highlight(word3)} ${highlight(word1)} in the middle of ${highlight(word5)}.</p>`);
+  document.write(`<p>Deciding to ${highlight(word2)} ${highlight(word4)}, ${highlight(name)} set off on an adventure.</p>`);
+  document.write(`<p>It was the most exciting day in all of ${highlight(word5)}!</p>`);
+</script>
+
+</body>
+</html>

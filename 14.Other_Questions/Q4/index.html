@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><title>UTC Converter</title></head>
+<body>
+
+<button onclick="showUTC()">Convert to UTC</button>
+<p id="utcTime"></p>
+
+<button onclick="startTimer()">Start Timer</button>
+<p id="delayedTime"></p>
+
+<script>
+  function showUTC() {
+    const utc = new Date().toUTCString();
+    document.getElementById("utcTime").innerText = "UTC Time: " + utc;
+    console.log("UTC:", utc);
+  }
+
+  function startTimer() {
+    setTimeout(() => {
+      const now = new Date();
+      document.getElementById("delayedTime").innerText = "Delayed: " + now;
+      console.log("Delayed Time:", now);
+    }, 3000); 
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slideshow</title>
+</head>
+<body>
+  <img id="slide" width="300" height="200" />
+  <script>
+    const images = [
+      'https://via.placeholder.com/300x200?text=1',
+      'https://via.placeholder.com/300x200?text=2',
+      'https://via.placeholder.com/300x200?text=3',
+      'https://via.placeholder.com/300x200?text=4',
+      'https://via.placeholder.com/300x200?text=5'
+    ];
+    let current = 0;
+
+    function showSlide() {
+      document.getElementById('slide').src = images[current];
+      current = (current + 1) % images.length;
+    }
+
+    setInterval(showSlide, 2000);
+    showSlide();
+  </script>
+</body>
+</html>

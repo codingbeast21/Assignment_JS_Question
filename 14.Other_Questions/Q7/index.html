@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Paragraph Insert and Style</title>
+  <style>
+    .highlight {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <p id="p1">This is the first paragraph.</p>
+  <p id="p2">This is the second paragraph.</p>
+
+  <script>
+    let newPara = document.createElement("p");
+    newPara.id = "pNew";
+    newPara.textContent = "This is the new paragraph.";
+    let parent = document.body;
+    let secondPara = document.getElementById("p2");
+    parent.insertBefore(newPara, secondPara);
+
+    newPara.addEventListener("mouseover", () => {
+      newPara.className = "highlight";
+    });
+
+    newPara.addEventListener("mouseout", () => {
+      newPara.className = "";
+    });
+  </script>
+</body>
+</html>

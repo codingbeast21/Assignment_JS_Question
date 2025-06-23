@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slideshow Navigation</title>
+</head>
+<body>
+  <img id="slide" width="300" height="200" /><br>
+  <button id="backBtn" onclick="goBack()">Back</button>
+  <button id="nextBtn" onclick="goNext()">Next</button>
+
+  <script>
+    const images = [
+      'https://via.placeholder.com/300x200?text=1',
+      'https://via.placeholder.com/300x200?text=2',
+      'https://via.placeholder.com/300x200?text=3',
+      'https://via.placeholder.com/300x200?text=4',
+      'https://via.placeholder.com/300x200?text=5'
+    ];
+    let index = 0;
+
+    function updateSlide() {
+      document.getElementById('slide').src = images[index];
+      document.getElementById('backBtn').style.display = index === 0 ? 'none' : 'inline';
+      document.getElementById('nextBtn').style.display = index === images.length - 1 ? 'none' : 'inline';
+    }
+
+    function goBack() {
+      if (index > 0) index--;
+      updateSlide();
+    }
+
+    function goNext() {
+      if (index < images.length - 1) index++;
+      updateSlide();
+    }
+
+    updateSlide();
+  </script>
+</body>
+</html>

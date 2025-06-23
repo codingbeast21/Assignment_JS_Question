@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup Form</title>
+</head>
+<body>
+
+<h2>Signup Form</h2>
+<form id="signupForm" onsubmit="return validateForm()">
+  Name: <input type="text" id="name"><br><br>
+  Email: <input type="text" id="email"><br><br>
+  Password: <input type="password" id="password"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+function validateForm() {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  if(name === "") {
+    alert("Name cannot be empty.");
+    return false;
+  }
+  
+  const emailRegex = /^\S+@\S+\.\S+$/;
+  if(!emailRegex.test(email)) {
+    alert("Please enter a valid email.");
+    return false;
+  }
+
+  if(password.length < 6) {
+    alert("Password must be at least 6 characters.");
+    return false;
+  }
+
+  alert("Form submitted successfully!");
+  return true;  
+}
+</script>
+
+</body>
+</html>
