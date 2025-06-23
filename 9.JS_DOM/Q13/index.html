@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Window Size Tracker</title>
+</head>
+<body>
+  <h3>Resize the window to see its dimensions</h3>
+  <p id="size"></p>
+
+  <script>
+    function displayWindowSize() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      document.getElementById("size").innerText = `Width: ${width}, Height: ${height}`;
+    }
+
+    window.addEventListener("resize", displayWindowSize);
+    window.addEventListener("load", displayWindowSize); // Show on initial load
+  </script>
+</body>
+</html>
